@@ -6,6 +6,7 @@
 //  2. Если рядом с живой клеткой не 2 и не 3 живых, то она умирает
 //  3. Обновление поля синхронно
 ///
+
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.5
@@ -16,8 +17,8 @@ ApplicationWindow {
 
     readonly property real window_scale: 0.75
 
-    readonly property real scale_ratio_x: /*Screen.width / */ width / 1650
-    readonly property real scale_ratio_y: /* Screen.height / */ height / 1050
+    readonly property real scale_ratio_x: width / 1650
+    readonly property real scale_ratio_y: height / 1050
 
     width: Screen.width * window_scale
     height: Screen.height * window_scale
@@ -34,24 +35,70 @@ ApplicationWindow {
     }
 
     readonly property var theme: {
-        "button": "#EFEFFC",
+        "button": "#FFFFFF",
         "logo_line": "#B0B3F3",
-        "separator": "#696BE6"
+        "separator": "#696BE6",
+        "top_panel": "#434AF6",
+        "down_panel": "#1F1AF4"
     }
 
-    function quitApp() {}
-    function changeMenuPage(page_id) {}
+    function quitApp() {
+        //save n quit
+        Qt.quit()
+
+    }
+    function changeMenuPage(page_id) {
+        switch (page_id) {
+        case "logo":
+            pageLoader.sourceComponent = logoPage
+            panel.sendTipsY()
+            break
+        case "plus":
+            pageLoader.sourceComponent = newWorldPage
+            break
+        case "worlds":
+            pageLoader.sourceComponent = worldsPage
+            break
+        case "examples":
+            pageLoader.sourceComponent = examplesPage
+            break
+        case "settings":
+            pageLoader.sourceComponent = settingsPage
+            break
+        }
+    }
 
     FontLoader {
-        id: comfortaa
-        source: "qrc:/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf"
+        id: comfortaa_light
+        source: "qrc:/fonts/Comfortaa/static/Comfortaa-Light.ttf"
     }
-
+    FontLoader {
+        id: comfortaa_regular
+        source: "qrc:/fonts/Comfortaa/static/Comfortaa-Regular.ttf"
+    }
     FontLoader {
         id: poppins
         source: "qrc:/fonts/Poppins/Poppins-SemiBold.ttf"
     }
 
+    Component {
+        id: logoPage
+        LogoPage {}
+    }
+    Component {
+        id: newWorldPage
+        NewWorldPage {}
+    }
+
+    Page {
+        id: mainPage
+        anchors.fill: parent
+        anchors.leftMargin: panel.width
+        Loader {
+            id: pageLoader
+            anchors.fill: parent
+        }
+    }
     MenuLeftPanel {
         id: panel
     }

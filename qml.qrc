@@ -28,7 +28,6 @@
         <file>fonts/Poppins/Poppins-SemiBoldItalic.ttf</file>
         <file>fonts/Poppins/Poppins-Thin.ttf</file>
         <file>fonts/Poppins/Poppins-ThinItalic.ttf</file>
-        <file>images/leftPanel_bg.svg</file>
         <file>LeftPanelButton.qml</file>
         <file>images/examples.png</file>
         <file>images/logo.png</file>
@@ -37,5 +36,9 @@
         <file>images/worlds.png</file>
         <file>MenuLeftPanel.qml</file>
         <file>images/exit.png</file>
+        <file>LogoPage.qml</file>
+        <file>controls/TipText.qml</file>
+        <file>controls/WelcomeText.qml</file>
+        <file>NewWorldPage.qml</file>
     </qresource>
 </RCC>

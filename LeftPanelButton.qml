@@ -12,7 +12,7 @@ Image {
     scale: background.width * ratio * scale_animation_ratio / width
 
     source: "qrc:/images/" + _name
-    opacity: hover.containsMouse || current_sign == _name ? 0.8 : 1.0
+    opacity: hover.containsMouse || current_sign == _name ? 0.9 : 1.0
 
     MouseArea {
         id: hover
