@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 Item {
 
-    width: header.font.pointSize * 11
+    width: header.width
     Column {
         spacing: 20 * scale_ratio_y
         anchors.fill: parent

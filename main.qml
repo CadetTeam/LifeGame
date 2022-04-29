@@ -11,6 +11,9 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.5
 
+import "qrc:/controls" as Controls
+import "qrc:/figures" as Figures
+
 ApplicationWindow {
     id: mainWindow
     visible: true
@@ -39,7 +42,9 @@ ApplicationWindow {
         "logo_line": "#B0B3F3",
         "separator": "#696BE6",
         "top_panel": "#434AF6",
-        "down_panel": "#1F1AF4"
+        "down_panel": "#1F1AF4",
+        "cell_alive": "black",
+        "cell_dead": "transparent"
     }
 
     function quitApp() {
@@ -47,6 +52,7 @@ ApplicationWindow {
         Qt.quit()
 
     }
+
     function changeMenuPage(page_id) {
         switch (page_id) {
         case "logo":
@@ -66,6 +72,8 @@ ApplicationWindow {
             pageLoader.sourceComponent = settingsPage
             break
         }
+
+        f_animator.state = page_id
     }
 
     FontLoader {
@@ -75,10 +83,6 @@ ApplicationWindow {
     FontLoader {
         id: comfortaa_regular
         source: "qrc:/fonts/Comfortaa/static/Comfortaa-Regular.ttf"
-    }
-    FontLoader {
-        id: poppins
-        source: "qrc:/fonts/Poppins/Poppins-SemiBold.ttf"
     }
 
     Component {
@@ -98,8 +102,14 @@ ApplicationWindow {
             id: pageLoader
             anchors.fill: parent
         }
+        Controls.FigureAnimator {
+            id: f_animator
+            anchors.fill: parent
+        }
     }
+
     MenuLeftPanel {
         id: panel
     }
+
 }

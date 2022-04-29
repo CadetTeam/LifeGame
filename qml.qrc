@@ -6,28 +6,6 @@
         <file>fonts/Comfortaa/static/Comfortaa-Medium.ttf</file>
         <file>fonts/Comfortaa/static/Comfortaa-Regular.ttf</file>
         <file>fonts/Comfortaa/static/Comfortaa-SemiBold.ttf</file>
-        <file>fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf</file>
-        <file>fonts/Comfortaa/OFL.txt</file>
-        <file>fonts/Comfortaa/README.txt</file>
-        <file>fonts/Poppins/OFL.txt</file>
-        <file>fonts/Poppins/Poppins-Black.ttf</file>
-        <file>fonts/Poppins/Poppins-BlackItalic.ttf</file>
-        <file>fonts/Poppins/Poppins-Bold.ttf</file>
-        <file>fonts/Poppins/Poppins-BoldItalic.ttf</file>
-        <file>fonts/Poppins/Poppins-ExtraBold.ttf</file>
-        <file>fonts/Poppins/Poppins-ExtraBoldItalic.ttf</file>
-        <file>fonts/Poppins/Poppins-ExtraLight.ttf</file>
-        <file>fonts/Poppins/Poppins-ExtraLightItalic.ttf</file>
-        <file>fonts/Poppins/Poppins-Italic.ttf</file>
-        <file>fonts/Poppins/Poppins-Light.ttf</file>
-        <file>fonts/Poppins/Poppins-LightItalic.ttf</file>
-        <file>fonts/Poppins/Poppins-Medium.ttf</file>
-        <file>fonts/Poppins/Poppins-MediumItalic.ttf</file>
-        <file>fonts/Poppins/Poppins-Regular.ttf</file>
-        <file>fonts/Poppins/Poppins-SemiBold.ttf</file>
-        <file>fonts/Poppins/Poppins-SemiBoldItalic.ttf</file>
-        <file>fonts/Poppins/Poppins-Thin.ttf</file>
-        <file>fonts/Poppins/Poppins-ThinItalic.ttf</file>
         <file>LeftPanelButton.qml</file>
         <file>images/examples.png</file>
         <file>images/logo.png</file>
@@ -40,5 +18,7 @@
         <file>controls/TipText.qml</file>
         <file>controls/WelcomeText.qml</file>
         <file>NewWorldPage.qml</file>
+        <file>figures/Template.qml</file>
+        <file>controls/FigureAnimator.qml</file>
     </qresource>
 </RCC>
