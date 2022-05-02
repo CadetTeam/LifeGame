@@ -5,8 +5,8 @@ import "qrc:/controls/" as Controls
 
 Item {
     id: page
-
     anchors.fill: parent
+
     property var tipsY: [0, 0, 0, 0, 0]
     property var tipText:
         [qsTr("Создать новый мир"),
@@ -21,6 +21,17 @@ Item {
             tipsY = tipsY_
         }
     }
+    Connections {
+        target: mainWindow
+        function onUpdateWelcomeTextY(){
+            mainWindow.welcomeTextY = welcomeText.y
+        }
+
+        function onUpdateWelcomeTextDownY(){
+            mainWindow.welcomeTextDownY = welcomeText.y + welcomeText.height
+        }
+    }
+
 
     Item {
         id: tips
@@ -35,7 +46,12 @@ Item {
     }
 
     Controls.WelcomeText {
+        id: welcomeText
         x: (page.width - width) * 0.8
-        anchors.verticalCenter: parent.verticalCenter
+        y: (page.height - height) * 0.7
+        Rectangle{
+            anchors.fill: parent
+            opacity: 0.2
+        }
     }
 }

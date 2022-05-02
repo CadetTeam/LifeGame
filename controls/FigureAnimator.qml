@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtGraphicalEffects 1.15
 import "qrc:/figures/" as Figures
 
 Item {
@@ -7,11 +8,18 @@ Item {
     visible: state != "null"
 
     property string state: "null"
+    signal updateWelcomeTextY()
+
+    function resizeContent(){
+        var state_last = state
+        state = "null"
+        state = state_last
+    }
 
     onStateChanged: {
         switch (state) {
         case "logo":
-            go(figure_1.width/2, mainPage.height - figure_1.height/2, -40, mainPage.width - figure_2.width * 1.5, 40, -45, 400)
+            go((mainPage.width-figure_1.width)/5, getWelcomeTextDownY(), figure_1.size_ * -0.2, mainPage.width - figure_2.width * 1.5, getWelcomeTextY() - figure_2.height, -120 + figure_2.size_ * 0.2, 400)
             break
 
         default:
@@ -25,7 +33,7 @@ Item {
     function go(x1, y1, r1, x2, y2, r2, dur){
         aim = [x1, y1, r1, x2, y2, r2, dur]
 
-        animation.running = true
+        animation.restart()
     }
     ParallelAnimation {
         id: animation
@@ -42,14 +50,14 @@ Item {
         id: area
         anchors.fill: parent
         hoverEnabled: true
-        property int motion_ratio: 350
+        property int motion_ratio: 100
         onMouseXChanged: {
             if(animation.running == false)
             {
                 var dx = mouseX - area.width/2
 
                 figure_1.x = aim[0] + dx / (motion_ratio)
-                figure_2.x = aim[3] + dx / (motion_ratio)
+                figure_2.x = aim[3] + dx / (motion_ratio * 2)
             }
         }
         onMouseYChanged: {
@@ -58,19 +66,19 @@ Item {
                 var dx = mouseY - area.height/2
 
                 figure_1.y = aim[1] + dx / (motion_ratio)
-                figure_2.y = aim[4] + dx / (motion_ratio)
+                figure_2.y = aim[4] + dx / (motion_ratio * 2)
             }
         }
     }
 
     Figures.Template {
         id: figure_1
-        size_: mainPage.width/3.2
+        size_: figure_2.size_ * 0.75
         template_: [0,1,0,0,0,1,1,1,1]
     }
     Figures.Template {
         id: figure_2
-        size_: mainPage.width/3.3
+        size_: Math.sqrt(mainPage.width * mainPage.height)/2.5
         template_: [0,1,1,0,1,0,0,1,0,1,0,1,0,0,1,0]
     }
 }
