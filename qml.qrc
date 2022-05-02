@@ -20,5 +20,9 @@
         <file>NewWorldPage.qml</file>
         <file>figures/Template.qml</file>
         <file>controls/FigureAnimator.qml</file>
+        <file>GameBoard.qml</file>
+        <file>WorldsPage.qml</file>
+        <file>controls/GameControlBox.qml</file>
+        <file>controls/ResetButton.qml</file>
     </qresource>
 </RCC>

@@ -44,7 +44,9 @@ ApplicationWindow {
         "top_panel": "#434AF6",
         "down_panel": "#1F1AF4",
         "cell_alive": "black",
-        "cell_dead": "transparent"
+        "cell_dead": "transparent",
+        "gameControl": "#DDDDDD",
+        "resetButtonWhite": "#f0f0f0"
     }
 
     function quitApp() {
@@ -87,11 +89,16 @@ ApplicationWindow {
 
     Component {
         id: logoPage
-        LogoPage {}
+        //LogoPage {}
+        GameBoard{}
     }
     Component {
         id: newWorldPage
         NewWorldPage {}
+    }
+    Component {
+        id: worldsPage
+        WorldsPage {}
     }
 
     Page {
@@ -105,6 +112,7 @@ ApplicationWindow {
         Controls.FigureAnimator {
             id: f_animator
             anchors.fill: parent
+            visible: false
         }
     }
 
