@@ -17,6 +17,7 @@ import "qrc:/figures" as Figures
 ApplicationWindow {
     id: mainWindow
     visible: true
+    color: theme.background
 
     readonly property real window_scale: 0.75
 
@@ -38,6 +39,7 @@ ApplicationWindow {
     }
 
     readonly property var theme: {
+        "background" : "white",
         "button": "#FFFFFF",
         "logo_line": "#B0B3F3",
         "separator": "#696BE6",
@@ -105,6 +107,11 @@ ApplicationWindow {
         id: mainPage
         anchors.fill: parent
         anchors.leftMargin: panel.width
+        Rectangle{
+            id: background
+            anchors.fill: parent
+            color: theme.background
+        }
         Loader {
             id: pageLoader
             anchors.fill: parent
@@ -118,6 +125,7 @@ ApplicationWindow {
 
     MenuLeftPanel {
         id: panel
+
     }
 
 }

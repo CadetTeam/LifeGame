@@ -13,6 +13,12 @@ Item {
 
         anchors.left: parent.left
         anchors.leftMargin: parent.width/30
+
+//        leftButton: "qrc:/images/logo.png"
+//        rightButton: "qrc:/images/plus.png"
+        function leftClicked() {
+
+        }
     }
 
 }
