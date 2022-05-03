@@ -29,9 +29,9 @@ ApplicationWindow {
     minimumWidth: Screen.width * 0.5
     minimumHeight: Screen.height * 0.5
 
-    //    пропорциональное изменение размеров окна (требует доработки)
-    //    onWidthChanged: height = width * Screen.height / Screen.width
-    //    onHeightChanged: width = height * Screen.width / Screen.height
+    onWidthChanged: resizeContent()
+    onHeightChanged: resizeContent()
+
     Component.onCompleted: {
         x = (Screen.width - width) / 2
         y = (Screen.height - height) / 2
@@ -43,14 +43,31 @@ ApplicationWindow {
         "separator": "#696BE6",
         "top_panel": "#434AF6",
         "down_panel": "#1F1AF4",
-        "cell_alive": "black",
+        "cell_alive": "#333333",
         "cell_dead": "transparent"
     }
 
-    function quitApp() {
-        //save n quit
-        Qt.quit()
 
+    function quitApp() {
+        Qt.quit()
+    }
+
+    function resizeContent() {
+        f_animator.resizeContent()
+    }
+
+    signal updateWelcomeTextY()
+    property int welcomeTextY
+    function getWelcomeTextY() {
+        updateWelcomeTextY()
+        return welcomeTextY
+    }
+
+    signal updateWelcomeTextDownY()
+    property int welcomeTextDownY
+    function getWelcomeTextDownY() {
+        updateWelcomeTextDownY()
+        return welcomeTextDownY
     }
 
     function changeMenuPage(page_id) {
@@ -87,8 +104,9 @@ ApplicationWindow {
 
     Component {
         id: logoPage
-        LogoPage {}
+        LogoPage {id: logoPage_}
     }
+
     Component {
         id: newWorldPage
         NewWorldPage {}

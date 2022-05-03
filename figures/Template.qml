@@ -24,7 +24,7 @@ Item {
         anchors.fill: parent
         rows: rows_
         columns: rows
-        spacing: figure.width / rows_ / 50
+        spacing: figure.width / rows_ / 10
 
         Repeater{
             model: template_

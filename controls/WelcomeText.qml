@@ -3,6 +3,7 @@ import QtQuick 2.0
 Item {
 
     width: header.width
+    height: header.height + text.height
     Column {
         spacing: 20 * scale_ratio_y
         anchors.fill: parent
