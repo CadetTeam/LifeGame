@@ -38,13 +38,19 @@ ApplicationWindow {
     }
 
     readonly property var theme: {
+        "background": "white",
         "button": "#FFFFFF",
         "logo_line": "#B0B3F3",
         "separator": "#696BE6",
         "top_panel": "#434AF6",
         "down_panel": "#1F1AF4",
         "cell_alive": "black",
-        "cell_dead": "transparent"
+        "cell_dead": "transparent",
+        "text_main": "black",
+        "text_button": "white",
+        "pushbutton_active": "#272EDD",
+        "pushbutton_inactive": "#CAC9FD"
+
     }
 
     function quitApp() {
@@ -83,6 +89,14 @@ ApplicationWindow {
     FontLoader {
         id: comfortaa_regular
         source: "qrc:/fonts/Comfortaa/static/Comfortaa-Regular.ttf"
+    }
+    FontLoader {
+        id: comfortaa_medium
+        source: "qrc:/fonts/Comfortaa/static/Comfortaa-Medium.ttf"
+    }
+    FontLoader {
+        id: comfortaa_semibold
+        source: "qrc:/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf"
     }
 
     Component {

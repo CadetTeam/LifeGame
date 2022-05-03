@@ -14,7 +14,7 @@ Item {
             Component.onCompleted: {
                 font.pointSize = 60 * scale_ratio_x
             }
-            color: "black"
+            color: theme.text_main
         }
         Text {
             id: text
@@ -29,7 +29,7 @@ Item {
             Component.onCompleted: {
                 font.pointSize = 20 * scale_ratio_x
             }
-            color: "black"
+            color: theme.text_main
         }
     }
 }

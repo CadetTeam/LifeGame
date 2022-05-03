@@ -20,5 +20,7 @@
         <file>NewWorldPage.qml</file>
         <file>figures/Template.qml</file>
         <file>controls/FigureAnimator.qml</file>
+        <file>controls/InputLine.qml</file>
+        <file>controls/PushButton.qml</file>
     </qresource>
 </RCC>

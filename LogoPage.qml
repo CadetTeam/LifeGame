@@ -5,8 +5,13 @@ import "qrc:/controls/" as Controls
 
 Item {
     id: page
-
     anchors.fill: parent
+
+    Rectangle{
+        anchors.fill: parent
+        color: theme.background
+    }
+
     property var tipsY: [0, 0, 0, 0, 0]
     property var tipText:
         [qsTr("Создать новый мир"),
