@@ -21,6 +21,7 @@ Item {
             tipsY = tipsY_
         }
     }
+
     Connections {
         target: mainWindow
         function onUpdateWelcomeTextY(){

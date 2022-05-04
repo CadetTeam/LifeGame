@@ -43,7 +43,7 @@ Item {
         id: background
         anchors.top: parent.top
         anchors.left: parent.left
-        height: mainWindow.height
+        anchors.bottom: parent.bottom
         radius: width / 4
 
         Component.onCompleted: width = height / 11

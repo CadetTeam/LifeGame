@@ -39,6 +39,7 @@ ApplicationWindow {
 
     readonly property var theme: {
         "button": "#FFFFFF",
+        "background": "white",
         "logo_line": "#B0B3F3",
         "separator": "#696BE6",
         "top_panel": "#434AF6",
@@ -112,10 +113,19 @@ ApplicationWindow {
         NewWorldPage {}
     }
 
+    background: Rectangle{
+        color: theme.background
+    }
+
     Page {
         id: mainPage
         anchors.fill: parent
         anchors.leftMargin: panel.width
+
+        background: Rectangle{
+            color: theme.bacrground
+        }
+
         Loader {
             id: pageLoader
             anchors.fill: parent
@@ -128,6 +138,8 @@ ApplicationWindow {
 
     MenuLeftPanel {
         id: panel
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
     }
 
 }
