@@ -38,6 +38,7 @@ ApplicationWindow {
     }
 
     readonly property var theme: {
+        "background": "white",
         "button": "#FFFFFF",
         "background": "white",
         "logo_line": "#B0B3F3",
@@ -101,6 +102,14 @@ ApplicationWindow {
     FontLoader {
         id: comfortaa_regular
         source: "qrc:/fonts/Comfortaa/static/Comfortaa-Regular.ttf"
+    }
+    FontLoader {
+        id: comfortaa_medium
+        source: "qrc:/fonts/Comfortaa/static/Comfortaa-Medium.ttf"
+    }
+    FontLoader {
+        id: comfortaa_semibold
+        source: "qrc:/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf"
     }
 
     Component {

@@ -12,8 +12,8 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             font.family: comfortaa_regular.name
             text: qsTr("Добро пожаловать!")
+            color: theme.text_main
             font.pointSize: 65
-            color: "black"
         }
         Text {
             id: text
@@ -26,7 +26,7 @@ Item {
             horizontalAlignment: Text.AlignHCenter
             lineHeight: 1.4
             font.pointSize: 25
-            color: "black"
+            color: theme.text_main
         }
     }
 }

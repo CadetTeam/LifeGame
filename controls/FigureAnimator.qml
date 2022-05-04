@@ -21,7 +21,10 @@ Item {
         case "logo":
             go((mainPage.width-figure_1.width)/5, getWelcomeTextDownY(), figure_1.size_ * -0.2, mainPage.width - figure_2.width * 1.5, getWelcomeTextY() - figure_2.height, -120 + figure_2.size_ * 0.2, 400)
             break
-
+        case "plus":
+            // todo
+             go(mainPage.width - figure_1.width/2, mainPage.height - figure_1.height/2, 140, -10, -10, 80, 400)
+            break
         default:
             state = "null"
             break
