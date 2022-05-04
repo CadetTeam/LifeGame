@@ -14,7 +14,8 @@ Item {
             go(figure_1.width/2, mainPage.height - figure_1.height/2, -40, mainPage.width - figure_2.width * 1.5, 40, -45, 400)
             break
         case "plus":
-          todo//  go(mainPage.width - figure_1.width/2, mainPage.height - figure_1.height/2, 140, -10, -10, 80, 400)
+            // todo
+             go(mainPage.width - figure_1.width/2, mainPage.height - figure_1.height/2, 140, -10, -10, 80, 400)
             break
         default:
             state = "null"

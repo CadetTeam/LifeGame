@@ -12,29 +12,30 @@ Item {
         font.family: comfortaa_light.name
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: row.top
-        anchors.bottomMargin: height
+        anchors.bottomMargin: height * scale
         verticalAlignment: Text.AlignVCenter
         fontSizeMode: Text.Fit
         text: "Создайте новый мир!"
         font.pointSize: 60
         scale: page.width / 1400
     }
-    property int contentHeight: page.height / 22
+
     Row{
         id: row
         anchors.centerIn: parent
-        width: header.width * 0.8
-        spacing: button.width * 0.2
+        width: 500
+        spacing: 30
+        scale: page.width / 1400
         Controls.InputLine{
             id: input
             width: row.width - button.width - row.spacing
-            height: contentHeight
+            height: 34
             lineName: "Имя"
         }
         Controls.PushButton{
             id: button
-            height: contentHeight
-            width: height * 4
+            height: 34
+            width: 140
             buttonText: "Создать"
         }
     }
