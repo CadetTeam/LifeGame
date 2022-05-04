@@ -17,7 +17,7 @@ Item {
         fontSizeMode: Text.Fit
         text: "Создайте новый мир!"
         font.pointSize: 60
-        scale: page.width / 1400
+        scale: Math.sqrt(page.width * page.height) / 1000
     }
 
     Row{
@@ -25,16 +25,16 @@ Item {
         anchors.centerIn: parent
         width: 500
         spacing: 30
-        scale: page.width / 1400
+        scale: Math.sqrt(page.width * page.height) / 1000
         Controls.InputLine{
             id: input
             width: row.width - button.width - row.spacing
-            height: 34
+            height: 30
             lineName: "Имя"
         }
         Controls.PushButton{
             id: button
-            height: 34
+            height: 30
             width: 140
             buttonText: "Создать"
         }
