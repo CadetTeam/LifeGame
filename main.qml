@@ -123,7 +123,7 @@ ApplicationWindow {
         anchors.leftMargin: panel.width
 
         background: Rectangle{
-            color: theme.bacrground
+            color: theme.background
         }
 
         Loader {

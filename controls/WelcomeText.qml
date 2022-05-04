@@ -12,9 +12,7 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             font.family: comfortaa_regular.name
             text: qsTr("Добро пожаловать!")
-            Component.onCompleted: {
-                font.pointSize = 60 * scale_ratio_x
-            }
+            font.pointSize: 65
             color: "black"
         }
         Text {
@@ -27,9 +25,7 @@ Item {
 Создавайте свои миры и наслаждайтесь!")
             horizontalAlignment: Text.AlignHCenter
             lineHeight: 1.4
-            Component.onCompleted: {
-                font.pointSize = 20 * scale_ratio_x
-            }
+            font.pointSize: 25
             color: "black"
         }
     }
