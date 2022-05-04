@@ -50,9 +50,7 @@ Item {
         id: welcomeText
         x: (page.width - width) * 0.8
         y: (page.height - height) * 0.7
-        Rectangle{
-            anchors.fill: parent
-            opacity: 0.2
-        }
+
+        scale: Math.sqrt(scale_ratio_x * scale_ratio_y)
     }
 }
