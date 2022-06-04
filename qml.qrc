@@ -22,5 +22,6 @@
         <file>controls/FigureAnimator.qml</file>
         <file>controls/InputLine.qml</file>
         <file>controls/PushButton.qml</file>
+        <file>controls/AnimatorMouseArea.qml</file>
     </qresource>
 </RCC>

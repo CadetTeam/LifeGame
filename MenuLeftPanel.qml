@@ -1,8 +1,6 @@
 //Левая панель навигации в меню
 //делегатом служит LeftPanelButton
 import QtQuick 2.15
-import QtQuick.Window 2.15
-import QtQuick.Controls 2.5
 
 Item {
     id: panel

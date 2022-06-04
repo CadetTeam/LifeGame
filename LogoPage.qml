@@ -1,6 +1,6 @@
 ///Главная страница
 
-import QtQuick 2.0
+import QtQuick 2.15
 import "qrc:/controls/" as Controls
 
 Item {
@@ -33,7 +33,6 @@ Item {
         }
     }
 
-
     Item {
         id: tips
         Repeater {
@@ -48,8 +47,8 @@ Item {
 
     Controls.WelcomeText {
         id: welcomeText
-        x: (page.width - width) * 0.8
-        y: (page.height - height) * 0.7
+        x: (page.width - width) * 0.8 + dx
+        y: (page.height - height) * 0.7 + dy
 
         scale: Math.sqrt(scale_ratio_x * scale_ratio_y)
     }

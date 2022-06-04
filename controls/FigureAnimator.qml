@@ -1,9 +1,13 @@
-import QtQuick 2.0
-//import QtGraphicalEffects 1.15
+import QtQuick 2.15
+
 import "qrc:/figures/" as Figures
 
 Item {
     id: anim
+
+    property Figures.Template figure_1: figure1
+
+    property Figures.Template figure_2: figure2
 
     visible: state != "null"
 
@@ -16,6 +20,10 @@ Item {
         state = state_last
     }
 
+    function running(){
+        return animation.running
+    }
+
     onStateChanged: {
         switch (state) {
         case "logo":
@@ -23,7 +31,7 @@ Item {
             break
         case "plus":
             // todo
-             go(mainPage.width - figure_1.width/2, mainPage.height - figure_1.height/2, 140, -10, -10, 80, 400)
+             go(mainPage.width - figure_1.width/1.2, mainPage.height - figure_1.height/1.3, 140 -figure_1.size_ * -0.2, -figure_2.width/5, -figure_2.height/5, 80 + figure_2.size_ * 0.2, 400)
             break
         default:
             state = "null"
@@ -49,38 +57,15 @@ Item {
         NumberAnimation {target: figure_2; property: "rotation"; to: aim[5]; duration: aim[6]}
     }
 
-    MouseArea{
-        id: area
-        anchors.fill: parent
-        hoverEnabled: true
-        property int motion_ratio: 100
-        onMouseXChanged: {
-            if(animation.running == false)
-            {
-                var dx = mouseX - area.width/2
 
-                figure_1.x = aim[0] + dx / (motion_ratio)
-                figure_2.x = aim[3] + dx / (motion_ratio * 2)
-            }
-        }
-        onMouseYChanged: {
-            if(animation.running == false)
-            {
-                var dx = mouseY - area.height/2
-
-                figure_1.y = aim[1] + dx / (motion_ratio)
-                figure_2.y = aim[4] + dx / (motion_ratio * 2)
-            }
-        }
-    }
 
     Figures.Template {
-        id: figure_1
+        id: figure1
         size_: figure_2.size_ * 0.75
         template_: [0,1,0,0,0,1,1,1,1]
     }
     Figures.Template {
-        id: figure_2
+        id: figure2
         size_: Math.sqrt(mainPage.width * mainPage.height)/2.5
         template_: [0,1,1,0,1,0,0,1,0,1,0,1,0,0,1,0]
     }

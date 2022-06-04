@@ -39,16 +39,22 @@ ApplicationWindow {
 
     readonly property var theme: {
         "background": "white",
+
         "button": "#FFFFFF",
-        "background": "white",
+        "pushbutton_active": "#7376F3",
+        "pushbutton_inactive": "#CAC9FD",
+
+        "text_main": "black",
+        "text_button": "white",
+
         "logo_line": "#B0B3F3",
         "separator": "#696BE6",
         "top_panel": "#434AF6",
         "down_panel": "#1F1AF4",
+
         "cell_alive": "#333333",
         "cell_dead": "transparent"
     }
-
 
     function quitApp() {
         Qt.quit()
@@ -70,6 +76,10 @@ ApplicationWindow {
     function getWelcomeTextDownY() {
         updateWelcomeTextDownY()
         return welcomeTextDownY
+    }
+
+    function createNewWorld() {
+
     }
 
     function changeMenuPage(page_id) {
@@ -126,6 +136,9 @@ ApplicationWindow {
         color: theme.background
     }
 
+    property double dx
+    property double dy
+
     Page {
         id: mainPage
         anchors.fill: parent
@@ -135,9 +148,16 @@ ApplicationWindow {
             color: theme.background
         }
 
+        Controls.AnimatorMouseArea {
+            id: area
+            anchors.fill: parent
+            motion_ratio: 500 // the lower the value's module => the more movements
+        }
+
         Loader {
             id: pageLoader
             anchors.fill: parent
+
         }
         Controls.FigureAnimator {
             id: f_animator
@@ -150,5 +170,4 @@ ApplicationWindow {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
     }
-
 }

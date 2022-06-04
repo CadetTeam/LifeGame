@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.15
 
 Item {
 
@@ -9,11 +9,13 @@ Item {
         "bad": "#F05151"
     }
 
-    Component.onCompleted: {
-        status = status_colors.empty
+    property string status_
+    onStatus_Changed: {
+        inputBorder.color = status_
+        changeButtonStatus(status_ === status_colors.good)
+        warning.visible = status_ !== status_colors.good
     }
-
-    property var status
+    function changeButtonStatus(status){}
 
     Row{
         id: row
@@ -29,19 +31,46 @@ Item {
         }
 
         Rectangle{
+            id: inputBorder
             width: parent.width - name.width - row.spacing
             height: parent.height
             radius: parent.height
-            color: status
+
             Rectangle {
                 anchors.fill: parent
                 anchors.margins: parent.height / 10
                 radius: parent.radius
                 color: theme.background
+                clip: true
+
                 TextInput{
                     anchors.fill: parent
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    maximumLength: 25
+                    font: comfortaa_light.name
+                    text: fileManager.getStandartWorldName()
+                    color: "grey"
+                    onTextChanged: {
+                        if(fileManager.nameAvailable(text))
+                            status_ = status_colors.good
+                        else
+                            status_ = status_colors.bad
+                    }
                 }
             }
         }
+    }
+    Text {
+        id: warning
+        visible: false
+        x: inputBorder.x
+        anchors.top: row.bottom
+        anchors.topMargin: height
+        horizontalAlignment: Text.AlignLeft
+        color: status_colors.bad
+        font.family: comfortaa_light.name
+        font.pointSize: 12
+        text: qsTr("*Имя должно быть уникальным")
     }
 }

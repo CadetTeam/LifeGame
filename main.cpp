@@ -1,6 +1,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+#include <QtQuick>
+#include <filemanager.h>
+
+
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -16,6 +20,12 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     engine.load(url);
+
+    FileManager *manager = new FileManager();
+
+    QQmlContext *context = engine.rootContext();
+
+    context->setContextProperty("fileManager", manager);
 
     return app.exec();
 }
