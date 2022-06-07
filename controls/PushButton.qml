@@ -6,6 +6,8 @@ Rectangle{
     property string buttonText: ""
     property bool active: false
 
+    function _clicked(){}
+
     radius: height
     color: active? theme.pushbutton_active : theme.pushbutton_inactive
 
@@ -18,8 +20,10 @@ Rectangle{
         font.family: comfortaa_semibold.name
         font.pointSize: 16
     }
-    TapHandler{
-        onTapped: if(active) createNewWorld()
+
+    MouseArea{
+        anchors.fill: parent
+        onClicked: _clicked()
     }
 
     NumberAnimation {

@@ -23,5 +23,8 @@
         <file>controls/InputLine.qml</file>
         <file>controls/PushButton.qml</file>
         <file>controls/AnimatorMouseArea.qml</file>
+        <file>SettingsPage.qml</file>
+        <file>controls/SettingsBox.qml</file>
+        <file>controls/PersonCard.qml</file>
     </qresource>
 </RCC>

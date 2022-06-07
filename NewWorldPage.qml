@@ -42,6 +42,9 @@ Item {
                 height: 30
                 width: 140
                 buttonText: "Создать"
+                function _clicked(){
+                    createNewWorld()
+                }
             }
         }
     }

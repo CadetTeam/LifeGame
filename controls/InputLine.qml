@@ -13,7 +13,7 @@ Item {
     onStatus_Changed: {
         inputBorder.color = status_
         changeButtonStatus(status_ === status_colors.good)
-        warning.visible = status_ !== status_colors.good
+        if(status_ !== status_colors.good) showWarning("uniq_err")
     }
     function changeButtonStatus(status){}
 
@@ -52,6 +52,7 @@ Item {
                     text: fileManager.getStandartWorldName()
                     color: "grey"
                     onTextChanged: {
+                        warning.visible = false
                         if(fileManager.nameAvailable(text))
                             status_ = status_colors.good
                         else
@@ -61,6 +62,24 @@ Item {
             }
         }
     }
+    function showWarning(err_code)
+    {
+        if (err_code === "uniq_err")
+        {
+            warning.text = qsTr("*Имя должно быть уникальным");
+        }
+        else
+        {
+            warning.text = qsTr("*Не удалось создать мир. Попробуйте другое имя");
+        }
+        warning.visible = true
+    }
+
+    Connections{
+        target: mainWindow
+        function onWarning(err_code){showWarning(err_code)}
+    }
+
     Text {
         id: warning
         visible: false

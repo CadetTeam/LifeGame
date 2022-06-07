@@ -30,8 +30,10 @@ Item {
             go((mainPage.width-figure_1.width)/5, getWelcomeTextDownY(), figure_1.size_ * -0.2, mainPage.width - figure_2.width * 1.5, getWelcomeTextY() - figure_2.height, -120 + figure_2.size_ * 0.2, 400)
             break
         case "plus":
-            // todo
-             go(mainPage.width - figure_1.width/1.2, mainPage.height - figure_1.height/1.3, 140 -figure_1.size_ * -0.2, -figure_2.width/5, -figure_2.height/5, 80 + figure_2.size_ * 0.2, 400)
+             go(mainPage.width - figure_1.width/1.2, mainPage.height - figure_1.height/1.3, -figure_1.size_ * -0.2, -figure_2.width/5, -figure_2.height/5, 10 + figure_2.size_ * 0.2, 400)
+            break
+        case "settings":
+            go(figure_1.width/5, mainPage.height - figure_1.height/1.5, -360 + 25 -figure_1.size_ * -0.2, mainPage.width - figure_2.width, -figure_2.height/5, -360 + 40 + figure_2.size_ * 0.2, 400)
             break
         default:
             state = "null"

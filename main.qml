@@ -39,10 +39,14 @@ ApplicationWindow {
 
     readonly property var theme: {
         "background": "white",
+        "bg_second": "#C4C4C4",
+        "bg_third": "#E7E7E7",
 
         "button": "#FFFFFF",
         "pushbutton_active": "#7376F3",
         "pushbutton_inactive": "#CAC9FD",
+
+        "blue": "#7574F3",
 
         "text_main": "black",
         "text_button": "white",
@@ -78,8 +82,10 @@ ApplicationWindow {
         return welcomeTextDownY
     }
 
+    signal warning(var err_code)
     function createNewWorld() {
-
+        if(!manager.createNewWorld())
+            warning("err")
     }
 
     function changeMenuPage(page_id) {
@@ -130,6 +136,10 @@ ApplicationWindow {
     Component {
         id: newWorldPage
         NewWorldPage {}
+    }
+    Component {
+        id: settingsPage
+        SettingsPage{}
     }
 
     background: Rectangle{
